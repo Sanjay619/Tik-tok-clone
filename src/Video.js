@@ -6,7 +6,14 @@ import VideoFooter from './VideoFooter';
 import VideoSideBar from './VideoSidebar' ;
 
 
-function Video(){
+function Video({
+url, 
+channel,
+description,
+song,
+likes,
+messages,
+shares} ){
 
     const [playing, setPlaying] = useState(false);
     const videoRef = useRef(null);
@@ -27,15 +34,15 @@ function Video(){
             onClick={onVideoPress} 
             ref ={videoRef}
 
-            src="http://techslides.com/demos/sample-videos/small.mp4" />
+            src={url} />
 
 
         <VideoFooter 
-            channel = "Sanjay"
-            description = "This is Nice Dance"
-            song ="Music Video"
+            channel = {channel}
+            description = {description}
+            song = {song}
         />
-        <VideoSideBar />
+        <VideoSideBar likes = {likes} messages = {messages} shares = {shares}  />
         </div>
     )
 }
